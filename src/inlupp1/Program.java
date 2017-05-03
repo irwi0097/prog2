@@ -1,19 +1,18 @@
 package inlupp1;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
 
-class valuablesReg extends JFrame{
+class Program extends JFrame {
 	
-	private ArrayList<Things> allThings = new ArrayList<>();
+	private ArrayList<Valuable> all = new ArrayList<>();
 	
-	public valuablesReg(){
-		super("Register");
-		
+	public Program(){
 		JPanel south = new JPanel();
 		add(south, BorderLayout.SOUTH);
-		JButton newButton = new JButton ("Add");
+		JButton newButton = new JButton("New");
 		south.add(newButton);
 		newButton.addActionListener(new NewList());
 		
@@ -22,34 +21,27 @@ class valuablesReg extends JFrame{
 		
 		JPanel right = new JPanel();
 		right.setLayout(new BoxLayout(right, BoxLayout.Y_AXIS));
-		add(right, BorderLayout.EAST);
-		right.add(new JLabel("Show which"));
-		JRadioButton allButton = new JRadioButton("All");
-		right.add(allButton);
-		JRadioButton 
+		add(right, (BorderLayout.EAST));
+		right.add(new JLabel("Show whom"));
 		
-		setLayout(new BorderLayout());
-		JPanel north = new JPanel();
-		north.add(new JButton("Open"));
-		north.add(new JLabel("File"));
-		north.add(new JTextField(12));
-		north.add(new JRadioButton("Name", false));
-		north.add(new JRadioButton("Value", false));
-		add(north,BorderLayout.NORTH);
-		JPanel south = new JPanel();
-		south.add(new JComboBox(comboVal));
-		JList li = new JList(listVal);
-		li.setVisibleRowCount(2);
-		south.add(new JScrollPane(li));
-		add(south, BorderLayout.SOUTH);
-		add(new JScrollPane(new JTextArea(str)),BorderLayout.CENTER);
-		setSize(500,400);
-		setDefaultCloseOperation(EXIT_ON_CLOSE); 
-		setVisible(true);	
+		JTextArea display = new JTextArea();
+		JScrollPane scroll = new JScrollPane(display);
+		add(scroll, BorderLayout.CENTER);
+		display.setEditable(false);
+		
+		setSize(400, 400);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setVisible(true);
 	}
 	
-
-	public static void main(String[] args) {
-		JFrame window = new Program();
+	class NewList implements ActionListener{
+	public void actionPerformed(ActionEvent ave) {
+		int answer = JOptionPane.showConfirmDialog(null, "are you with me?");
+		if (answer !=JOptionPane.OK_OPTION)
+			return;
 	}
+	}
+
+	
+	
 }
